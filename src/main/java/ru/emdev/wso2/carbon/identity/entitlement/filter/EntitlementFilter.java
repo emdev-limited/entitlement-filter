@@ -242,7 +242,8 @@ public class EntitlementFilter implements Filter {
     }
 
     private String findResource(HttpServletRequest request) {
-    	return request.getRequestURI();
+    	// EMDEV Here is only one diff comparing to original version - use path inside application
+        return request.getRequestURI().substring(request.getContextPath().length());
     }
 
     private String findAction(HttpServletRequest request) {
